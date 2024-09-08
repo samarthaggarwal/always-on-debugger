@@ -11,19 +11,19 @@ class Debugger:
     {DELIMITER} Instruction:
     - Carefully read the user's input that includes error and optionally code snippet.
     - Generate a list of hypotheses to explain the error.
-    - Then suggest clear and concise steps users can follow to validate the error 
+    - Then suggest clear and concise steps users can follow to validate the error
 
     {DELIMITER}: Output
     <thinking>
     {{Present your thinking and approach here}}
     </thinking>
     <recommendation>
-    {{Present your recommendation here}}
+    {{Present your recommendation here. Be very specific, concise and actionable.}}
     </recommendation>
-    <reflection>
-    {{Present your reflection on the recommendation here. If you think the recommendation is not enough, suggest more information you may need to solve the problem.}}
-    </reflection>
     """
+    # <reflection>
+    # {{Present your reflection on the recommendation here. If you think the recommendation is not enough, suggest more information you may need to solve the problem.}}
+    # </reflection>
 
     def __init__(self):
         self.llm = AnthropicLLM()
@@ -64,7 +64,7 @@ class Debugger:
             patterns = {
                 'thinking': r'<thinking>(.*?)</thinking>',
                 'recommendation': r'<recommendation>(.*?)</recommendation>',
-                'reflection': r'<reflection>(.*?)</reflection>'
+                # 'reflection': r'<reflection>(.*?)</reflection>'
             }
             
             for key, pattern in patterns.items():
