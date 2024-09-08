@@ -1,6 +1,6 @@
 {
   "name": "aidebug",
-  "version": "0.1",
+  "version": "1.0.0",
   "devDependencies": {
     "@types/node": "^22.5.4",
     "ts-node": "^10.9.2"
