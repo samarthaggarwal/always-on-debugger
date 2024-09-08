@@ -13,8 +13,11 @@ async function run() {
   const [, , ...args] = argv;
   const command = args.join(' ');
 
+  const terminalCommand =
+    process.platform === 'win32' ? `py -3.11 -m terminal "${command}"` : `python terminal "${command}"`;
+
   try {
-    const child = execSync(`py -3.8 -m terminal "${command}"`, { stdio: 'inherit' });
+    const child = execSync(terminalCommand, { stdio: 'inherit' });
   } catch (error) {
     console.log('Error happened', error);
   }
