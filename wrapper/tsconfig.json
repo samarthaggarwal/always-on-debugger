@@ -4,5 +4,5 @@
     "preserveConstEnums": true,
     "types": ["node"]
   },
-  "include": ["wrapper.ts"]
+  "include": ["wrapper.js"]
 }

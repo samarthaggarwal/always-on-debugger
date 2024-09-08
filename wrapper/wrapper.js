@@ -1,6 +1,8 @@
+#!/usr/bin/env node
+
 const { argv } = require('node:process');
-import { exec, execSync, spawn, spawnSync } from 'child_process';
-import { join } from 'path';
+const { exec, execSync, spawn, spawnSync } = require('child_process');
+const { join } = require('path');
 
 const path = join('terminal');
 console.log(path);
