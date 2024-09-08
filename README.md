@@ -27,14 +27,76 @@ alias debug="python ~/always-on-debugger/terminal.py"
 export ANTHROPIC_API_KEY=<PASTE_YOUR_OWN_API_KEY>
 ```
 
-_Step 3: Source ~/.bashrc or ~/.zshrc_
+_Step 3: Source ~/.bashrc or ~/.zshrc . Alternatively, open a new terminal._
 ```bash
 source ~/.bashrc
 ```
 
 ## Usage
 
-Just prefix any terminal command with `debug`. That's it, the debugger will automatically kick in when an error is detected and prints the error along with the suggested course of action.
+Just prefix any terminal command with `debug`. That's it, the debugger will automatically kick in when an error is detected and prints the error along with the suggested course of action. Here's an example:
+
+> Normally, the deverlop would only see the error.
+```bash
+[14:57:19] ➜  demo git:(main) ✗ python average.py
+The average is: 3.0
+Traceback (most recent call last):
+  File "/Users/samarthaggarwal/personal/always-on-debugger/demo/average.py", line 15, in <module>
+    average_of_empty = calculate_average(empty_list)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/samarthaggarwal/personal/always-on-debugger/demo/average.py", line 7, in calculate_average
+    return total / count
+           ~~~~~~^~~~~~~
+ZeroDivisionError: division by zero
+```
+
+> Prefixing the same command with `debug` prints the error along with diagnosis and recommendations.
+
+```bash
+[14:57:21] ➜  demo git:(main) ✗ debug python average.py
+Traceback (most recent call last):
+  File "/Users/samarthaggarwal/personal/always-on-debugger/demo/average.py", line 15, in <module>
+    average_of_empty = calculate_average(empty_list)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/samarthaggarwal/personal/always-on-debugger/demo/average.py", line 7, in calculate_average
+    return total / count
+           ~~~~~~^~~~~~~
+ZeroDivisionError: division by zero
+
+---------------------------------------------------------------------
+Debugging...
+
+---------------------------------------------------------------------
+To fix this error and improve the calculate_average function, follow these steps:
+
+1. Modify the calculate_average function to handle empty lists:
+   def calculate_average(numbers):
+       if not numbers:  # Check if the list is empty
+           return 0  # or you could return None, or raise a custom exception
+       total = sum(numbers)
+       count = len(numbers)
+       return total / count
+
+2. This modification checks if the input list is empty before performing any calculations. If it is empty, it returns 0 (or you could choose to return None or raise a custom exception, depending on how you want to handle this case).
+
+3. Test the function with both non-empty and empty lists to ensure it works correctly in all cases.
+
+4. If you want to keep the original loop structure, you can modify it like this:
+   def calculate_average(numbers):
+       total = 0
+       count = 0
+       for num in numbers:
+           total += num
+           count += 1
+       if count == 0:
+           return 0  # or None, or raise an exception
+       return total / count
+
+5. Choose the implementation that best fits your needs and coding style.
+
+
+By implementing one of these solutions, you will prevent the ZeroDivisionError and handle empty lists gracefully.
+```
 
 ## How it works?
 1. Prefix your terminal commands with `debug`.
