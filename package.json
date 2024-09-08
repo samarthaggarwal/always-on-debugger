@@ -1,0 +1,14 @@
+{
+  "name": "aod",
+  "version": "0.1",
+  "devDependencies": {
+    "@types/node": "^22.5.4",
+    "ts-node": "^10.9.2"
+  },
+  "bin": {
+    "aod": "./wrapper.js"
+  },
+  "scripts": {
+    "start": "node wrapper.js"
+  }
+}
