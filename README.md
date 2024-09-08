@@ -13,26 +13,34 @@ Always-On Debugger is a tool that enhances your terminal experience by automatic
 - Captures context and sends it to an AI language model for analysis
 - Provides AI-generated debugging suggestions directly in the terminal
 
-## Installation
-
+## Setup
+_Step 1: Clone the repo_
 ```bash
-pip install always-on-debugger
+cd ~
+git clone git@github.com:samarthaggarwal/always-on-debugger.git
 ```
 
+_Step 2: Update ~/.bashrc_
+Add the following to your ~/.bashrc or ~/.zshrc
 ```
-brew install auto-debugger
+alias debug="python ~/always-on-debugger/terminal.py"
+export ANTHROPIC_API_KEY=<PASTE_YOUR_OWN_API_KEY>
+```
+
+_Step 3: Source ~/.bashrc or ~/.zshrc_
+```bash
+source ~/.bashrc
 ```
 
 ## Usage
 
-Once installed, Always-On Debugger runs in the background of your terminal sessions. Here's how it works:
+Just prefix any terminal command with `debug`. That's it, the debugger will automatically kick in when an error is detected and prints the error along with the suggested course of action.
 
-1. Execute commands as you normally would in your terminal.
+## How it works?
+1. Prefix your terminal commands with `debug`.
 2. If an error occurs, Always-On Debugger automatically captures the context.
 3. The error context is sent to an AI language model for analysis.
 4. Debugging suggestions are printed directly to your terminal.
-
-No additional user input is required - the debugging process happens automatically when an error is detected.
 
 ## Project Structure
 
