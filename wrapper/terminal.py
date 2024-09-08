@@ -1,6 +1,16 @@
 import subprocess
+import time 
 
 print("Hello there")
+
+while True:
+    time.sleep(5)
+    print("Hey")
+    time.sleep(5)
+    raise Exception("Sorry, no numbers below zero")
+
+
+raise Exception("Sorry, no numbers below zero")
 
 # def run_command(command):
 #     try:

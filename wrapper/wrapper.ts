@@ -8,7 +8,12 @@ console.log(path);
 async function run() {
   console.log(argv);
 
-  const child = execSync(`py -3.8 -m ${path}`, { stdio: 'inherit' });
+  try {
+    const child = execSync(`py -3.8 -m ${path}`, { stdio: 'inherit' });
+  } catch (error) {
+    console.log('Error happened', error);
+  }
+
   // const child = execSync(`node somethinsg.js`, { stdio: 'inherit' });
 
   // child.on('exit', () => {
