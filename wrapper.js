@@ -13,8 +13,12 @@ async function run() {
   const [, , ...args] = argv;
   const command = args.join(' ');
 
-  const terminalCommand =
-    process.platform === 'win32' ? `py -3.11 -m terminal "${command}"` : `python terminal "${command}"`;
+  const terminalScript = join(__dirname, 'terminal.py');
+
+  // const terminalCommand =
+  //   process.platform === 'win32' ? `py -3.11 -m terminal "${command}"` : `python terminal "${command}"`;
+
+  const terminalCommand = `python ${terminalScript} "${command}"`;
 
   try {
     const child = execSync(terminalCommand, { stdio: 'inherit' });
