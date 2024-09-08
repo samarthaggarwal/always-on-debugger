@@ -11,5 +11,8 @@
   },
   "scripts": {
     "start": "node wrapper.js"
+  },
+  "dependencies": {
+    "aidebug": "^1.0.0"
   }
 }
