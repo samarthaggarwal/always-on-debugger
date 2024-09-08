@@ -1,5 +1,5 @@
 import re
-from typing import Dict, Any
+from typing import Dict, Any, Optional
 
 from llm import AnthropicLLM, Conversation
 
@@ -28,22 +28,36 @@ class Debugger:
     def __init__(self):
         self.llm = AnthropicLLM()
 
-    def generate_user_prompt(self, error: str, code_snippet: str) -> str:
-        return f"""
-        Here is the error message and relevant code:
-        
-        ===============
-        <error>
-        {error}
-        </error>
-        <code_snippet>
-        {code_snippet}
-        </code_snippet>
-        ===============
-        """
+    def generate_user_prompt(self, command: str, error: str, code_snippet: Optional[str]) -> str:
+        if code_snippet is None:
+            return f"""
+            Here is the command and error message:
+            ===============
+            <command>
+            {command}
+            </command>
+            <error>
+            {error}
+            </error>
+            """
+        else:
+            return f"""
+            Here is the command, error message and relevant code:
+            ===============
+            <command>
+            {command}
+            </command>
+            <error>
+            {error}
+            </error>
+            <code_snippet>
+            {code_snippet}
+            </code_snippet>
+            ===============
+            """
 
-    def debug(self, error: str, code_snippet: str) -> Dict[str, Any]:
-        user_prompt = self.generate_user_prompt(error, code_snippet)
+    def debug(self, command: str, error: str, code_snippet: Optional[str] = None) -> Dict[str, Any]:
+        user_prompt = self.generate_user_prompt(command, error, code_snippet)
         conversation = Conversation()
         conversation.add_user_message(user_prompt)
         messages = conversation.to_dict()
