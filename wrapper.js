@@ -10,7 +10,7 @@ const path = join('terminal');
 // npm run start -- "py -3.8 -m terminal"
 // npm pack
 // npm i -g aod-0.1.tgz
-//
+// $env:ANTHROPIC_API_KEY = "<key>"
 
 async function run() {
   // console.log(argv);

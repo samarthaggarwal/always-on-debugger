@@ -13,7 +13,7 @@ dotenv_path = find_dotenv()
 load_dotenv(dotenv_path)
 
 #OPENAI_API_KEY = os.environ["OPENAI_API_KEY"]
-ANTHROPIC_API_KEY = os.environ["ANTHROPIC_KEY"]
+ANTHROPIC_API_KEY = os.environ["ANTHROPIC_API_KEY"]
 
 
 MODEL_MAPPING = {
