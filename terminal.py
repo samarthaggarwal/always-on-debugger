@@ -7,7 +7,8 @@ def run_command(command):
         result = subprocess.run(command, shell=True, check=True, text=True, capture_output=True)
         print(result.stdout)
     except subprocess.CalledProcessError as e:
-        print(f"Error: {e.stderr}")
+        print(e.stderr)
+        print("-" * 100 + "\n" + "Debugging..." + "\n" + "-" * 100)
         debugger = Debugger()
         resp = debugger.debug(e.stderr, command)
         print(resp["recommendation"])
