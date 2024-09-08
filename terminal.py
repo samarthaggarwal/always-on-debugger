@@ -3,8 +3,6 @@ import sys
 import os
 from debugger import Debugger
 
-DEEP_DEBUG_INTERPRETERS: list[str] = ["python"]
-
 class Command:
     def __init__(self, args: list[str]):
         if len(args) == 0:
@@ -23,16 +21,19 @@ class Command:
         except subprocess.CalledProcessError as e:
             print(e.stderr)
             print("-" * 100 + "\n" + "Debugging..." + "\n" + "-" * 100)
+
+            # Detect file path
+            filepath = self.debugger.detect_file_path(self.raw_command, e.stderr)
+            if filepath is not None and not os.path.exists(filepath):
+                filepath = None
+
+            # Read code snippet
             code_snippet = None
-            if self.interpreter.lower() in DEEP_DEBUG_INTERPRETERS:
-                filepath = f"{os.path.dirname(os.path.abspath(__file__))}/{self.filename}"
-                if os.path.exists(filepath):
-                    with open(filepath, 'r') as file:
-                        code_snippet = file.read()
-                else:
-                    code_snippet = "File not found: " + filepath
-            resp = self.debugger.debug(self.raw_command, e.stderr, code_snippet)
-            print(resp["recommendation"])
+            if filepath is not None:
+                with open(filepath, 'r') as file:
+                    code_snippet = file.read()
+            response = self.debugger.debug(self.raw_command, e.stderr, code_snippet)
+            print(response["recommendation"])
 
 if __name__ == "__main__":
     cmd = Command(sys.argv[1:])
