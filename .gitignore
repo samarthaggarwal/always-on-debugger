@@ -162,3 +162,5 @@ cython_debug/
 #.idea/
 
 wrapper/node_modules
+
+**/*.tgz
