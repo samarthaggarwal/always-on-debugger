@@ -9,6 +9,6 @@
     "aod": "./wrapper.js"
   },
   "scripts": {
-    "start": "ts-node wrapper.ts"
+    "start": "node wrapper.js"
   }
 }
