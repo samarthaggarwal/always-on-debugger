@@ -14,6 +14,21 @@ Always-On Debugger is a tool that enhances your terminal experience by automatic
 - Provides AI-generated debugging suggestions directly in the terminal
 
 ## Setup
+There are two ways to setup Always-On Debugger.
+
+### Option 1: Using npm
+
+Step 1: Install the package
+```bash
+npm install -g aidebug
+```
+
+Step 2: Now you can use the `debug` command to debug your commands.
+```bash
+debug python average.py
+```
+
+### Option 2: Manual Setup
 _Step 1: Clone the repo_
 ```bash
 cd ~
