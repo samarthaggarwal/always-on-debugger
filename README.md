@@ -6,6 +6,8 @@ Automatically debug code from your terminal.
 
 Always-On Debugger is a tool that enhances your terminal experience by automatically detecting errors and providing debugging assistance using AI. It acts as a wrapper around your existing terminal, intercepting commands and their outputs to offer real-time debugging support.
 
+At present, we only support using Anthropic's Claude API. Let us know if you need OpenAI support.
+
 ## Features
 
 - Mimics the terminal for every command
@@ -22,8 +24,13 @@ Step 1: Install the package
 ```bash
 npm install -g aidebug
 ```
+Step 2: Setup the API key for Anthropic
 
-Step 2: Now you can use the `debug` command to debug your commands.
+```bash
+export ANTHROPIC_API_KEY=<PASTE_YOUR_OWN_API_KEY>
+```
+
+Step 3: Now you can use the `debug` command to debug your commands.
 ```bash
 debug python average.py
 ```
