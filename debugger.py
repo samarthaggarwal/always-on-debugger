@@ -1,5 +1,15 @@
 import re
+import os
 from typing import Dict, Any, Optional
+from dotenv import load_dotenv, find_dotenv
+from typing import Callable, Dict, List, Optional
+
+import openai
+import anthropic
+
+# Environment setup
+dotenv_path = find_dotenv()
+load_dotenv(dotenv_path)
 
 from llm import AnthropicLLM, Conversation
 
@@ -40,6 +50,8 @@ class Debugger:
 
     def __init__(self):
         self.llm = AnthropicLLM()
+        self.llm.client.api_key = os.environ.get("ANTHROPIC_API_KEY")
+        #print(f"Anthropic API key: {self.llm.client.api_key}")
 
     def generate_user_prompt_for_file_detection(self, command: str, error: str) -> str:
         return f"""
@@ -59,7 +71,7 @@ class Debugger:
         conversation.add_user_message(user_prompt)
         messages = conversation.to_dict()
 
-        llm_response = self.llm.generate_conversation_stream_print(self.FILE_DETECTION_SYSTEM_PROMPT, messages, model="small")
+        llm_response = self.llm.generate_conversation(self.FILE_DETECTION_SYSTEM_PROMPT, messages, model="small")
         parsed_response = self.parse_response(llm_response)
         filepath = parsed_response["filepath"]
         if filepath == "NO_FILE":
