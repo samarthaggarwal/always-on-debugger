@@ -7,7 +7,10 @@ Always-On Debugger is a tool that enhances your terminal experience by automatic
 
 At present, we only support using Anthropic's Claude API. Let us know if you need OpenAI support.
 
-[Video demo](https://www.loom.com/share/5afa2d7fd46c470bbc884675a77aec3c)
+https://github.com/user-attachments/assets/2a8a6d49-8b98-4319-a8de-16ef6ea23210
+
+[Loom Demo](https://www.loom.com/share/5afa2d7fd46c470bbc884675a77aec3c)
+
 
 ## Features
 
