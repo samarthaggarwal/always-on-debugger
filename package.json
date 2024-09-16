@@ -1,10 +1,11 @@
 {
   "name": "aidebug",
-  "version": "1.0.1",
-  "devDependencies": {
-    "@types/node": "^22.5.4",
-    "ts-node": "^10.9.2"
+  "version": "1.0.2",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/samarthaggarwal/always-on-debugger.git"
   },
+  "homepage": "https://github.com/samarthaggarwal/always-on-debugger",
   "bin": {
     "aod": "./wrapper.js",
     "debug": "./wrapper.js"
