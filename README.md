@@ -6,6 +6,12 @@ Automatically debug code from your terminal.
 
 Always-On Debugger is a tool that enhances your terminal experience by automatically detecting errors and providing debugging assistance using AI. It acts as a wrapper around your existing terminal, intercepting commands and their outputs to offer real-time debugging support.
 
+At present, we only support using Anthropic's Claude API. Let us know if you need OpenAI support.
+
+https://github.com/user-attachments/assets/2a8a6d49-8b98-4319-a8de-16ef6ea23210
+
+[Loom Demo](https://www.loom.com/share/5afa2d7fd46c470bbc884675a77aec3c)
+
 ## Features
 
 - Mimics the terminal for every command

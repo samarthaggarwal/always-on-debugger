@@ -14,6 +14,7 @@ load_dotenv(dotenv_path)
 
 #OPENAI_API_KEY = os.environ["OPENAI_API_KEY"]
 ANTHROPIC_API_KEY = os.environ["ANTHROPIC_API_KEY"]
+#print(f"Anthropic API key: {ANTHROPIC_API_KEY}")
 
 
 MODEL_MAPPING = {
@@ -122,7 +123,6 @@ class AnthropicLLM(LLM):
             max_tokens=kwargs.get("max_tokens", 4096),
             messages=messages
         )
-        logger.info(f"Response from Anthropic: {response.content[0].text}")
         return response.content[0].text
 
     def stream_text(self, prompt: str, model: str = "large", **kwargs):
