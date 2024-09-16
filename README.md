@@ -21,6 +21,30 @@ https://github.com/user-attachments/assets/2a8a6d49-8b98-4319-a8de-16ef6ea23210
 
 ## Installation
 
+There are two ways to setup Always-On Debugger.
+
+### Option 1: Using npm
+
+Step 1: Install the package
+
+```bash
+npm install -g aidebug
+```
+
+Step 2: Setup the API key for Anthropic
+
+```bash
+export ANTHROPIC_API_KEY=<PASTE_YOUR_OWN_API_KEY>
+```
+
+Step 3: Now you can use the `debug` command to debug your commands.
+
+```bash
+debug python average.py
+```
+
+### Option 2: Manual Setup
+
 _Step 1: Clone the repo_
 
 ```bash
