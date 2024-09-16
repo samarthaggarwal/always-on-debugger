@@ -8,6 +8,7 @@ const { join } = require('path');
 // npm pack
 // npm i -g aod-0.1.tgz
 // $env:ANTHROPIC_API_KEY = "<key>"
+// npm publish
 
 async function run() {
   const [, , ...args] = argv;
