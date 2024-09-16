@@ -3,6 +3,7 @@
 Automatically debug code from your terminal.
 
 ## Overview
+
 Always-On Debugger is a tool that enhances your terminal experience by automatically detecting errors and providing debugging assistance using AI. It acts as a wrapper around your existing terminal, intercepting commands and their outputs to offer real-time debugging support.
 
 At present, we only support using Anthropic's Claude API. Let us know if you need OpenAI support.
@@ -11,7 +12,6 @@ https://github.com/user-attachments/assets/2a8a6d49-8b98-4319-a8de-16ef6ea23210
 
 [Loom Demo](https://www.loom.com/share/5afa2d7fd46c470bbc884675a77aec3c)
 
-
 ## Features
 
 - Mimics the terminal for every command
@@ -19,15 +19,18 @@ https://github.com/user-attachments/assets/2a8a6d49-8b98-4319-a8de-16ef6ea23210
 - Captures context and sends it to an AI language model for analysis
 - Provides AI-generated debugging suggestions directly in the terminal
 
-## Setup
+## Installation
+
 There are two ways to setup Always-On Debugger.
 
 ### Option 1: Using npm
 
 Step 1: Install the package
+
 ```bash
 npm install -g aidebug
 ```
+
 Step 2: Setup the API key for Anthropic
 
 ```bash
@@ -35,12 +38,15 @@ export ANTHROPIC_API_KEY=<PASTE_YOUR_OWN_API_KEY>
 ```
 
 Step 3: Now you can use the `debug` command to debug your commands.
+
 ```bash
 debug python average.py
 ```
 
 ### Option 2: Manual Setup
+
 _Step 1: Clone the repo_
+
 ```bash
 cd ~
 git clone git@github.com:samarthaggarwal/always-on-debugger.git
@@ -48,12 +54,14 @@ git clone git@github.com:samarthaggarwal/always-on-debugger.git
 
 _Step 2: Update ~/.bashrc_
 Add the following to your ~/.bashrc or ~/.zshrc
+
 ```
 alias debug="python ~/always-on-debugger/terminal.py"
 export ANTHROPIC_API_KEY=<PASTE_YOUR_OWN_API_KEY>
 ```
 
 _Step 3: Source ~/.bashrc or ~/.zshrc . Alternatively, open a new terminal._
+
 ```bash
 source ~/.bashrc
 ```
@@ -63,6 +71,7 @@ source ~/.bashrc
 Just prefix any terminal command with `debug`. That's it, the debugger will automatically kick in when an error is detected and prints the error along with the suggested course of action. Here's an example:
 
 > Normally, the deverlop would only see the error.
+
 ```bash
 [14:57:19] ➜  demo git:(main) ✗ python average.py
 The average is: 3.0
@@ -125,6 +134,7 @@ By implementing one of these solutions, you will prevent the ZeroDivisionError a
 ```
 
 ## How it works?
+
 1. Prefix your terminal commands with `debug`.
 2. If an error occurs, Always-On Debugger automatically captures the context.
 3. The error context is sent to an AI language model for analysis.
