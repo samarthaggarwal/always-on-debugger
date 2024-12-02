@@ -1,7 +1,7 @@
 import sys
 import os
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-from debugger import Debugger
+from aidebug.debugger import Debugger
 
 def test_debugger():
     debugger = Debugger()

@@ -1,0 +1,5 @@
+mkdir aidebug
+touch aidebug/__init__.py
+mv terminal.py aidebug/
+mv debugger.py aidebug/
+mv llm.py aidebug/ 

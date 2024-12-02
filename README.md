@@ -24,6 +24,9 @@ There are two ways to setup Always-On Debugger.
 Step 1: Install the package
 ```bash
 npm install -g aidebug
+or 
+
+pip install ai-code-debugger
 ```
 Step 2: Setup the API key for Anthropic
 

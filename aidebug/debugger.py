@@ -11,7 +11,7 @@ import anthropic
 dotenv_path = find_dotenv()
 load_dotenv(dotenv_path)
 
-from llm import AnthropicLLM, Conversation
+from aidebug.llm import AnthropicLLM, Conversation
 
 class Debugger:
     DELIMITER = "#######"
